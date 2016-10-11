@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         data = new String[] {"AA", "BBB", "CC22", "DD44", "EEEEE555", "FF","GG","HH","II","LL", "FF1","GG2","HH3","II4","LL5"};
+        mylist = new ArrayList<>();
         mylist.add(new Student("AA", "11111"));
         mylist.add(new Student("BB", "2222222"));
         mylist.add(new Student("CC", "333333"));
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         lv = (ListView) findViewById(R.id.listView);
 
-        MyAdapter adapter = new MyAdapter(MainActivity.this, data);
+        MyAdapter adapter = new MyAdapter(MainActivity.this, mylist);
         lv.setAdapter(adapter);
     }
 

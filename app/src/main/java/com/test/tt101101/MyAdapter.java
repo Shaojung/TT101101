@@ -40,13 +40,25 @@ public class MyAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = LayoutInflater.from(context);
+        ViewHolder holder ;
         if (convertView == null)
         {
+            holder = new ViewHolder();
             convertView = inflater.inflate(R.layout.myitem, null);
+            convertView.setTag(holder);
+            holder.tv = (TextView) convertView.findViewById(R.id.textView);
         }
-        TextView tv = (TextView) convertView.findViewById(R.id.textView);
-        tv.setText(data[position] + ":" + position);
+        else
+        {
+            holder = (ViewHolder) convertView.getTag();
+        }
+
+        holder.tv.setText(data[position] + ":" + position);
         Log.d("ADAPTER", "position:" + position);
         return convertView;
+    }
+    static class ViewHolder
+    {
+        TextView tv;
     }
 }

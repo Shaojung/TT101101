@@ -1,6 +1,7 @@
 package com.test.tt101101;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,6 +44,7 @@ public class MyAdapter extends BaseAdapter {
 
         TextView tv = (TextView) v.findViewById(R.id.textView);
         tv.setText(data[position] + ":" + position);
+        Log.d("ADAPTER", "position:" + position);
         return v;
     }
 }
